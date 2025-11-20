@@ -1,48 +1,4 @@
-// import { useState } from "react";
-// import { fetchProperties } from "./api/geminiAPI";
 
-// function App() {
-//   const [location, setLocation] = useState("");
-//   const [properties, setProperties] = useState([]);
-//   const [loading, setLoading] = useState(false);
-
-//   const handleSearch = async () => {
-//     setLoading(true);
-//     const data = await fetchProperties(location);
-//     setProperties(data);
-//     setLoading(false);
-//   };
-
-//   return (
-//     <div className="app">
-//       <h1>🏠 AI Real Estate Finder</h1>
-//       <div className="search-bar">
-//         <input
-//           type="text"
-//           value={location}
-//           placeholder="Enter location (e.g., New York)"
-//           onChange={(e) => setLocation(e.target.value)}
-//         />
-//         <button onClick={handleSearch}>Search</button>
-//       </div>
-
-//       {loading && <p>Loading properties...</p>}
-
-//       <div className="results">
-//         {properties.map((p, i) => (
-//           <div key={i} className="property">
-//             <h3>{p.title}</h3>
-//             <p>{p.address}</p>
-//             <p>{p.price}</p>
-//             <p>{p.description}</p>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default App;
 
 import { useState } from "react";
 import { fetchProperties } from "./api/geminiAPI";
@@ -69,7 +25,7 @@ function App() {
   return (
     <div className="app">
       <header>
-        <h1>🏠 AI Real Estate Finder</h1>
+        <h1>AI Real Estate Finder</h1>
         <p>Discover dream homes with the power of AI.</p>
       </header>
 
@@ -84,7 +40,7 @@ function App() {
       </div>
 
       {error && <p className="error">{error}</p>}
-      {loading && <p className="loading">✨ Fetching listings...</p>}
+      {loading && <p className="loading">Fetching listings...</p>}
 
       <div className="property-grid">
         {properties.map((p, i) => (
@@ -105,7 +61,7 @@ function App() {
       </div>
 
       {!loading && properties.length === 0 && !error && (
-        <p className="hint">🔍 Try searching for “New York” or “Los Angeles”.</p>
+        <p className="hint">Try searching for “New York” or “Los Angeles”.</p>
       )}
     </div>
   );
